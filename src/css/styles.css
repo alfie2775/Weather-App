@@ -1,0 +1,175 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+main {
+  background-repeat: no-repeat;
+  background-size: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main::before {
+  content: "";
+  background: -webkit-gradient(linear, left top, left bottom, from(#48c6ef), to(#6f86d6));
+  background: linear-gradient(#48c6ef, #6f86d6);
+  top: 0;
+  left: 0;
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+main .a-card {
+  background-color: rgba(255, 255, 255, 0.2);
+  min-height: 350px;
+  padding: 55px 50px;
+  overflow: hidden;
+  position: relative;
+}
+
+main .a-card::before {
+  content: "";
+  left: 0;
+  top: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -webkit-transform: skewY(50deg);
+          transform: skewY(50deg);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+main .a-card:hover::after {
+  left: 100%;
+}
+
+main .a-card:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+}
+
+main .a-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(rgba(255, 255, 255, 0.4)), to(transparent));
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: 0.5s;
+}
+
+main .a-card .a-card-header {
+  text-align: center;
+}
+
+main .a-card .a-card-image {
+  width: 100px;
+  height: 100px;
+  background-color: lightskyblue;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+main .header {
+  position: absolute;
+  font-size: larger;
+  top: 3%;
+  left: 5%;
+}
+
+main .search {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main .search-img {
+  width: auto;
+  padding: 0px 15px;
+  height: 6vh;
+  color: white;
+  background-color: #1f1f1f;
+  margin-left: 20px;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  z-index: 1;
+  cursor: pointer;
+}
+
+main .search-img:hover {
+  -webkit-box-shadow: 0 0 0 0.1rem #e0dbdb;
+          box-shadow: 0 0 0 0.1rem #e0dbdb;
+  -webkit-transition: -webkit-box-shadow 0.3s ease;
+  transition: -webkit-box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, -webkit-box-shadow 0.3s ease;
+}
+
+main .search-img:active {
+  background-color: #555555;
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+}
+
+main .search-img:focus {
+  outline: 0;
+}
+
+main .search-bar {
+  padding: 0px 20px;
+  font-size: 1.25rem;
+  padding-right: 70px;
+  width: 30%;
+  min-width: 300px;
+  height: 6vh;
+  border: none;
+  border-radius: 19px;
+  -webkit-box-shadow: 0 0 0 0.15rem #9e9d9d;
+          box-shadow: 0 0 0 0.15rem #9e9d9d;
+  background: #e4e4e4;
+}
+
+main .search-bar:focus {
+  border-color: #80bdff;
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 0.2rem #a9b5f5;
+          box-shadow: 0 0 0 0.2rem #a9b5f5;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+/*# sourceMappingURL=styles.css.map */
