@@ -5,6 +5,11 @@
           box-sizing: border-box;
 }
 
+body {
+  background: -webkit-gradient(linear, left top, left bottom, from(#48c6ef), to(#6f86d6));
+  background: linear-gradient(#48c6ef, #6f86d6);
+}
+
 main {
   background-repeat: no-repeat;
   background-size: cover;
@@ -23,28 +28,23 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  overflow-x: hidden;
 }
 
-main::before {
-  content: "";
-  background: -webkit-gradient(linear, left top, left bottom, from(#48c6ef), to(#6f86d6));
-  background: linear-gradient(#48c6ef, #6f86d6);
-  top: 0;
-  left: 0;
-  z-index: -1;
-  position: absolute;
+main .a-cards {
   width: 100%;
-  height: 100%;
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
+  position: relative;
 }
 
 main .a-card {
+  margin: 1.4%;
   background-color: rgba(255, 255, 255, 0.2);
-  min-height: 350px;
+  height: 42vh;
   padding: 55px 50px;
   overflow: hidden;
   position: relative;
+  float: left;
+  width: 22%;
 }
 
 main .a-card::before {
@@ -90,20 +90,18 @@ main .a-card .a-card-header {
   text-align: center;
 }
 
-main .a-card .a-card-image {
-  width: 100px;
-  height: 100px;
-  background-color: lightskyblue;
-  margin-left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+main .a-card .a-card-img {
+  margin-right: 7%;
+  font-size: 3rem;
+  color: white;
 }
 
 main .header {
-  position: absolute;
-  font-size: larger;
-  top: 3%;
-  left: 5%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 5%;
 }
 
 main .search {
@@ -132,18 +130,25 @@ main .search-img {
 }
 
 main .search-img:hover {
-  -webkit-box-shadow: 0 0 0 0.1rem #e0dbdb;
-          box-shadow: 0 0 0 0.1rem #e0dbdb;
+  -webkit-box-shadow: 0 0 0 0.12rem #f395f7;
+          box-shadow: 0 0 0 0.12rem #f395f7;
   -webkit-transition: -webkit-box-shadow 0.3s ease;
   transition: -webkit-box-shadow 0.3s ease;
   transition: box-shadow 0.3s ease;
   transition: box-shadow 0.3s ease, -webkit-box-shadow 0.3s ease;
+  background-color: floralwhite;
+  -webkit-transition: all 0.2s ease, -webkit-transform 0.5s ease-in-out;
+  transition: all 0.2s ease, -webkit-transform 0.5s ease-in-out;
+  transition: all 0.2s ease, transform 0.5s ease-in-out;
+  transition: all 0.2s ease, transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+  color: black;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 main .search-img:active {
-  background-color: #555555;
-  -webkit-transition: background-color 0.5s ease;
-  transition: background-color 0.5s ease;
+  color: white;
+  background-color: #1f1f1f;
 }
 
 main .search-img:focus {
@@ -158,18 +163,55 @@ main .search-bar {
   min-width: 300px;
   height: 6vh;
   border: none;
-  border-radius: 19px;
-  -webkit-box-shadow: 0 0 0 0.15rem #9e9d9d;
-          box-shadow: 0 0 0 0.15rem #9e9d9d;
-  background: #e4e4e4;
+  border-radius: 21px;
+  -webkit-box-shadow: 0 0 0 0.15rem #a9b5f5;
+          box-shadow: 0 0 0 0.15rem #a9b5f5;
+  background: floralwhite;
 }
 
 main .search-bar:focus {
   border-color: #80bdff;
   outline: 0;
-  -webkit-box-shadow: 0 0 0 0.2rem #a9b5f5;
-          box-shadow: 0 0 0 0.2rem #a9b5f5;
+  -webkit-box-shadow: 0 0 0 0.2rem #f7f57e;
+          box-shadow: 0 0 0 0.2rem #f7f57e;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+}
+
+@media screen and (max-width: 1145px) {
+  .a-card {
+    margin: 3% !important;
+    width: 27% !important;
+    height: 48vh !important;
+  }
+  .a-card:last-child {
+    float: none;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+@media screen and (max-width: 958px) {
+  .a-card {
+    margin: 7% !important;
+    width: 35% !important;
+    height: 52vh !important;
+  }
+  .a-card:last-child {
+    float: left;
+    margin: 7% !important;
+  }
+}
+
+@media screen and (max-width: 678px) {
+  .a-card {
+    margin: 14% !important;
+    width: 70% !important;
+    height: 60vh !important;
+  }
+  .a-card:last-child {
+    float: left;
+    margin: 14% !important;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
