@@ -8,7 +8,7 @@ const swapDayAndMonth = (date) => {
   date = date.split("/");
   return date[1] + "/" + date[0] + "/" + date[2];
 };
-const WeatherCard = ({ info, day }) => {
+const WeatherCard = ({ info, day, time, ic }) => {
   if (info == null) return <></>;
   return (
     <div className="a-card">
@@ -18,7 +18,7 @@ const WeatherCard = ({ info, day }) => {
       <div className="a-card-body">
         <div className="acb-1">
           <span
-            className={"a-card-img wi " + maps[info.weather[0].main + "-1"]}
+            className={"a-card-img wi " + maps[info.weather[0].main + ic]}
           ></span>
           <p className="a-main">{info.weather[0].main}</p>
           <span className="a-card-img wi wi-thermometer"></span>
@@ -27,6 +27,8 @@ const WeatherCard = ({ info, day }) => {
         <div className="acb-2">
           <span className="a-card-img wi wi-humidity"></span>
           <span className="hum">{parseInt(info.main.humidity) / 100}</span>
+          <span className="a-card-img wi wi-time-1"></span>
+          <p className="time">{time}</p>
         </div>
       </div>
       <p className="txt-bottom">{info.weather[0].description}</p>
@@ -79,7 +81,7 @@ const Search = (props) => {
     </div>
   );
 };
-const PresentWeather = ({ info }) => {
+const PresentWeather = ({ info, ic }) => {
   if (info == null) return <></>;
   return (
     <div className="pres-">
@@ -90,9 +92,7 @@ const PresentWeather = ({ info }) => {
           <p className="pres-t">{info.wind.speed} m/s</p>
         </div>
         <div className="w-main">
-          <span
-            className={"wi pres " + maps[info.weather[0].main + "-1"]}
-          ></span>
+          <span className={"wi pres " + maps[info.weather[0].main + ic]}></span>
           <p className="pres-t">{info.weather[0].description}</p>
         </div>
       </div>
@@ -122,9 +122,22 @@ class Weather extends Component {
   }
 
   render() {
-    var date1 = new Date();
-    var date2 = new Date();
-    var date3 = new Date();
+    var date1, date2, date3, time, ic;
+    if (this.state.info.length) {
+      date1 = new Date(this.state.info[2].dt);
+      date2 = new Date(this.state.info[3].dt);
+      date3 = new Date(this.state.info[4].dt);
+      time = this.state.info[0].dt;
+      time = new Date(time).toTimeString().substring(0, 5);
+      var timeInt = parseInt(time[0] + time[1]);
+      if (timeInt > 19 || time < 5) ic = "-2";
+      else ic = "-1";
+    } else {
+      date1 = new Date();
+      date2 = new Date();
+      date3 = new Date();
+      ic = "-1";
+    }
     date1.setDate(date1.getDate() + 2);
     date2.setDate(date2.getDate() + 3);
     date3.setDate(date3.getDate() + 4);
@@ -137,20 +150,31 @@ class Weather extends Component {
           oninput={(c) => this.setState({ city: c })}
           setinfo={(info) => this.setState({ info })}
         />
-        <PresentWeather info={this.state.info[0]} />
+        <PresentWeather info={this.state.info[0]} ic={ic} />
         <div className="a-cards">
-          <WeatherCard info={this.state.info[1]} day="Tomorrow" />
+          <WeatherCard
+            info={this.state.info[1]}
+            day="Tomorrow"
+            time={time}
+            ic={ic}
+          />
           <WeatherCard
             info={this.state.info[2]}
             day={date1.toLocaleDateString()}
+            time={time}
+            ic={ic}
           />
           <WeatherCard
             info={this.state.info[3]}
             day={date2.toLocaleDateString()}
+            time={time}
+            ic={ic}
           />
           <WeatherCard
             info={this.state.info[4]}
             day={date3.toLocaleDateString()}
+            time={time}
+            ic={ic}
           />
         </div>
       </main>

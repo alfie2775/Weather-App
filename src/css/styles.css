@@ -134,9 +134,15 @@ main .a-card .a-card-img {
   font-size: 3rem;
 }
 
+main .a-card .wi-time-1 {
+  margin-top: 10%;
+  font-size: 3rem;
+}
+
 main .a-card .temp,
 main .a-card .hum,
 main .a-card .a-main,
+main .a-card .time,
 main .a-card .txt-top,
 main .a-card .txt-bottom {
   font-size: 1.7rem;
