@@ -123,21 +123,13 @@ class Weather extends Component {
 
   render() {
     var date1, date2, date3, time, ic;
-    if (this.state.info.length) {
-      date1 = new Date(this.state.info[2].dt);
-      date2 = new Date(this.state.info[3].dt);
-      date3 = new Date(this.state.info[4].dt);
-      time = this.state.info[0].dt;
-      time = new Date(time).toTimeString().substring(0, 5);
-      var timeInt = parseInt(time[0] + time[1]);
-      if (timeInt > 19 || time < 5) ic = "-2";
-      else ic = "-1";
-    } else {
-      date1 = new Date();
-      date2 = new Date();
-      date3 = new Date();
-      ic = "-1";
-    }
+    date1 = new Date();
+    date2 = new Date();
+    date3 = new Date();
+    time = new Date().toTimeString().substring(0, 5);
+    var timeInt = parseInt(time[0] + time[1]);
+    if (timeInt > 19 || time < 5) ic = "-2";
+    else ic = "-1";
     date1.setDate(date1.getDate() + 2);
     date2.setDate(date2.getDate() + 3);
     date3.setDate(date3.getDate() + 4);
