@@ -8,6 +8,7 @@
 body {
   background: linear-gradient(#48c6ef, #6f86d6);
   font-family: "Alegreya", sans-serif;
+  min-height: 100vh;
 }
 main {
   background-repeat: no-repeat;
@@ -26,8 +27,8 @@ main {
   .a-card {
     margin: 1.4%;
     background-color: rgba(255, 255, 255, 0.2);
-    height: 47vh;
-    padding: 55px 45px;
+    min-height: 47vh;
+    padding: 30px 45px;
     padding-top: 27px;
     overflow: hidden;
     display: flex;
@@ -123,6 +124,7 @@ main {
     text-transform: uppercase;
     width: 100%;
     display: flex;
+    justify-content: space-around;
     font-size: 1.4rem;
     margin-left: 5%;
     align-items: center;
@@ -214,6 +216,29 @@ main {
   }
 }
 
+.alfie {
+  text-align: center;
+  font-size: large;
+  color: white;
+}
+
+.link-to-alfie {
+  border: 0.01rem solid rgb(175, 175, 175);
+  background: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  color: floralwhite;
+  padding: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 20%;
+}
+.link-to-alfie:hover,
+.link-to-alfie:active {
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  color: orange;
+}
+
 @media screen and (max-width: 1145px) {
   .search {
     margin-top: 5%;
@@ -237,7 +262,7 @@ main {
   .a-card {
     margin: 3% !important;
     width: 27% !important;
-    height: 48vh !important;
+    min-height: 48vh !important;
     &:last-child {
       float: none;
       margin-left: auto !important;
@@ -253,7 +278,7 @@ main {
   .a-card {
     margin: 7% !important;
     width: 35% !important;
-    height: 52vh !important;
+    min-height: 52vh !important;
     &:last-child {
       float: left;
       margin: 7% !important;
@@ -272,6 +297,9 @@ main {
       margin-right: 3%;
     }
   }
+  .pres- {
+    transform: translateX(-5%);
+  }
   .header {
     padding-top: 3%;
     padding-left: 2%;
@@ -280,7 +308,7 @@ main {
   .a-card {
     margin: 14% !important;
     width: 70% !important;
-    height: 60vh !important;
+    min-height: 60vh !important;
     &:last-child {
       float: left;
       margin: 14% !important;

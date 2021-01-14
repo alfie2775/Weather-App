@@ -11,6 +11,7 @@ body {
   background: -webkit-gradient(linear, left top, left bottom, from(#48c6ef), to(#6f86d6));
   background: linear-gradient(#48c6ef, #6f86d6);
   font-family: "Alegreya", sans-serif;
+  min-height: 100vh;
 }
 
 main {
@@ -42,8 +43,8 @@ main .a-cards {
 main .a-card {
   margin: 1.4%;
   background-color: rgba(255, 255, 255, 0.2);
-  height: 47vh;
-  padding: 55px 45px;
+  min-height: 47vh;
+  padding: 30px 45px;
   padding-top: 27px;
   overflow: hidden;
   display: -webkit-box;
@@ -174,6 +175,8 @@ main .header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   font-size: 1.4rem;
   margin-left: 5%;
   -webkit-box-align: center;
@@ -298,6 +301,31 @@ main .pres- .hum-2:hover {
   transition: all 0.25s ease-in-out;
 }
 
+.alfie {
+  text-align: center;
+  font-size: large;
+  color: white;
+}
+
+.link-to-alfie {
+  border: 0.01rem solid #afafaf;
+  background: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  color: floralwhite;
+  padding: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 20%;
+}
+
+.link-to-alfie:hover,
+.link-to-alfie:active {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  color: orange;
+}
+
 @media screen and (max-width: 1145px) {
   .search {
     margin-top: 5%;
@@ -333,7 +361,7 @@ main .pres- .hum-2:hover {
   .a-card {
     margin: 3% !important;
     width: 27% !important;
-    height: 48vh !important;
+    min-height: 48vh !important;
   }
   .a-card:last-child {
     float: none;
@@ -351,7 +379,7 @@ main .pres- .hum-2:hover {
   .a-card {
     margin: 7% !important;
     width: 35% !important;
-    height: 52vh !important;
+    min-height: 52vh !important;
   }
   .a-card:last-child {
     float: left;
@@ -376,6 +404,10 @@ main .pres- .hum-2:hover {
   .search .search-img {
     margin-right: 3%;
   }
+  .pres- {
+    -webkit-transform: translateX(-5%);
+            transform: translateX(-5%);
+  }
   .header {
     padding-top: 3%;
     padding-left: 2%;
@@ -384,7 +416,7 @@ main .pres- .hum-2:hover {
   .a-card {
     margin: 14% !important;
     width: 70% !important;
-    height: 60vh !important;
+    min-height: 60vh !important;
   }
   .a-card:last-child {
     float: left;

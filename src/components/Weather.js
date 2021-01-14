@@ -39,6 +39,19 @@ const Header = () => {
   return (
     <div className="header">
       <h2 style={{ color: "white" }}>Weather</h2>
+      <div className="alfie">
+        <p>
+          Made by &nbsp;
+          <a
+            target="_blank"
+            rel="noreferrer"
+            className="link-to-alfie"
+            href="https://tarunalfie.netlify.app"
+          >
+            Alfie
+          </a>
+        </p>
+      </div>
     </div>
   );
 };
@@ -67,7 +80,16 @@ const Search = (props) => {
         type="text"
         name="search"
         placeholder={"Enter a city name"}
-        onChange={(e) => props.oninput(e.target.value)}
+        onKeyPress={async (e) => {
+          if (e.key === "Enter") {
+            document.querySelector(".search-img");
+            const info = await fetchData(props.city);
+            props.setinfo(info);
+          }
+        }}
+        onChange={(e) => {
+          props.oninput(e.target.value);
+        }}
       />
       <button
         className="search-img"
